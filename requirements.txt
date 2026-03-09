@@ -1,0 +1,4 @@
+# Network Scanner — Requirements
+# No third-party packages required.
+# This project uses only Python standard library modules.
+# Python 3.8+ recommended.
