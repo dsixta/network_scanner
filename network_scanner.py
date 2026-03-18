@@ -270,7 +270,7 @@ def main():
     try:
         # ipaddress.ip_network handles both single IPs and CIDR ranges
         network = ipaddress.ip_network(args.target, strict=False)
-        ip_list = list(network.hosts())  # .hosts() excludes network/broadcast addresses
+        ip_list = list(network.hosts()) or [network.network_address]  # .hosts() returns empty for /32; fall back to the address itself
     except ValueError as e:
         print(f"[!] Invalid target: {e}")
         return
